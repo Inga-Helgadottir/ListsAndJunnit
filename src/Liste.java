@@ -1,6 +1,6 @@
 import javax.xml.soap.Node;
 
-public class Lister {
+public class Liste {
     Node head;
     Node tail;
 }
