@@ -15,4 +15,17 @@ public class Liste {
 
         return n;
     }
+
+    public Node insertFromTail(Node n){
+        if(tail == null){
+            head = n;
+            tail = n;
+            return tail;
+        }
+
+        tail.next = n;
+        n.prev = tail;
+        tail = n;
+        return n;
+    }
 }
