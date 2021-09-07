@@ -28,4 +28,15 @@ public class Liste {
         tail = n;
         return n;
     }
+
+    public String printFromHead(){
+        Node n = head;
+        String res = "";
+
+        while (n != null){
+            res = res + n.data;
+            n = n.next;
+        }
+        return res;
+    }
 }

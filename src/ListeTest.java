@@ -23,4 +23,16 @@ class ListeTest {
         assertEquals("data2", liste.insertFromTail(n2).data);
 
     }
+
+    @Test
+    void printFromHead() {
+        assertEquals("", liste.printFromHead());
+
+        liste.insertFromHead(new Node("1"));
+        liste.insertFromHead(new Node("2"));
+        liste.insertFromHead(new Node("3"));
+        liste.insertFromHead(new Node("4"));
+
+        assertEquals("4321", liste.printFromHead());
+    }
 }
