@@ -50,4 +50,34 @@ public class Liste {
         }
         return res;
     }
+
+    public Node removeFromHead(){
+        if(head == null){
+            return null;
+        }
+
+        if(head == tail){
+            return head;
+        }
+        Node n = head;
+        head.next = head;
+        head.next.prev = null;
+
+        return head;
+    }
+
+    public Node removeFromTail(){
+        if(head == null){
+            return null;
+        }
+
+        if(head == tail){
+            return tail;
+        }
+        Node n = tail;
+        tail.prev = tail;
+        tail.prev.next = null;
+
+        return tail;
+    }
 }
