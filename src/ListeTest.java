@@ -35,4 +35,16 @@ class ListeTest {
 
         assertEquals("4321", liste.printFromHead());
     }
+
+    @Test
+    void printFromTail() {
+        assertEquals("", liste.printFromTail());
+
+        liste.insertFromHead(new Node("1"));
+        liste.insertFromHead(new Node("2"));
+        liste.insertFromHead(new Node("3"));
+        liste.insertFromHead(new Node("4"));
+
+        assertEquals("1234", liste.printFromTail());
+    }
 }
