@@ -74,6 +74,7 @@ public class Liste {
         if(head == tail){
             return tail;
         }
+
         Node n = tail;
         tail.prev = tail;
         tail.prev.next = null;
