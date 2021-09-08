@@ -10,6 +10,7 @@ public class Main {
         l.insertFromHead(n2);
         l.insertFromHead(n3);
         l.insertFromHead(n4);
-        l.findNodeInList("3");
+        l.removeNodeFromMiddle(l.findNodeInList("2"));
+
     }
 }

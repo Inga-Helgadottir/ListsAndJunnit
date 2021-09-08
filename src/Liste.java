@@ -110,12 +110,9 @@ public class Liste {
     }
 
     public Node findNodeInList(String s){
-        //loop through list
-        //find element
         Node n = head;
         while (n != null){
             if(n.data.equals(s)){
-                removeNodeFromMiddle(n);
                 return n;
             }
             n = n.next;
@@ -126,8 +123,11 @@ public class Liste {
     public void removeNodeFromMiddle(Node n){
         //change the elements before : next
         //change the elements after : prev
+        System.out.println("before");
+        printFromHead();
         n.prev.next = n.next;
         n.next.prev = n.prev;
+        System.out.println("after");
         printFromHead();
     }
 }
