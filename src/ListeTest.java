@@ -1,9 +1,23 @@
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListeTest {
     Liste liste = new Liste();
+
+    @BeforeEach
+    void setUp() {
+        Node n = new Node("1");
+        Node n2 = new Node("2");
+        Node n3 = new Node("3");
+        Node n4 = new Node("4");
+        liste.insertFromHead(n);
+        liste.insertFromHead(n2);
+        liste.insertFromHead(n3);
+        liste.insertFromHead(n4);
+    }
 
     @Test
     void insertFromHead() {
