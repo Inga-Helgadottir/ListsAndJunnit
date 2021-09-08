@@ -71,7 +71,7 @@ class ListeTest {
     }
 
     @Test
-    void removeFromHead() {
+    void removeFromHead() {/*
         assertEquals(null, liste.removeFromHead());
 
         Node n = new Node("1");
@@ -83,7 +83,18 @@ class ListeTest {
         liste.insertFromHead(n3);
         liste.insertFromHead(n4);
 
-        assertEquals(n4, liste.removeFromHead());
+        assertEquals(n4, liste.removeFromHead());*/
+        Node n = new Node("");
+        assertEquals(n.data, listeTom.removeFromHead().data);
+
+        Node n2 = new Node("4");
+        listeTom.insertFromHead(n2);
+        assertEquals(n2, listeTom.removeFromHead());
+
+        assertEquals(true, listeTom.isEmpty());
+
+        assertEquals("3", liste.removeFromHead().data);
+        assertEquals("210", liste.printFromHead());
 
     }
 
@@ -103,5 +114,18 @@ class ListeTest {
 
         assertEquals(n, liste.removeFromTail());
 
+    }
+
+    @Test
+    void findNodeInList() {
+        Node n = new Node("1");
+        Node n2 = new Node("2");
+        Node n3 = new Node("3");
+        Node n4 = new Node("4");
+        liste.insertFromHead(n);
+        liste.insertFromHead(n2);
+        liste.insertFromHead(n3);
+        liste.insertFromHead(n4);
+        assertEquals("3", liste.findNodeInList("3").data);
     }
 }

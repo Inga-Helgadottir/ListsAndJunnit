@@ -2,6 +2,13 @@ public class Liste {
     Node head;
     Node tail;
 
+    public boolean isEmpty() {
+        if (head == null && tail == null) {
+            return true;
+        }
+        return false;
+    }
+
     public Node insertFromHead(Node n){
         if(head == null){
             head = n;
@@ -37,6 +44,7 @@ public class Liste {
             res = res + n.data;
             n = n.next;
         }
+        System.out.println(res);
         return res;
     }
 
@@ -52,6 +60,25 @@ public class Liste {
     }
 
     public Node removeFromHead(){
+
+        Node n = new Node("");
+        if(isEmpty()){
+            return n;
+        }
+        if(head == tail){
+            n = head;
+            head = null;
+            tail = null;
+            return n;
+        }
+        n = head;
+
+        head = head.next;
+        head.prev.next = null;
+        head.prev = null;
+
+        return n;
+        /* before
         if(head == null){
             return null;
         }
@@ -63,7 +90,7 @@ public class Liste {
         head.next = head;
         head.next.prev = null;
 
-        return head;
+        return head;*/
     }
 
     public Node removeFromTail(){
@@ -82,10 +109,25 @@ public class Liste {
         return tail;
     }
 
-    public boolean isEmpty() {
-        if (head == null && tail == null) {
-            return true;
+    public Node findNodeInList(String s){
+        //loop through list
+        //find element
+        Node n = head;
+        while (n != null){
+            if(n.data.equals(s)){
+                removeNodeFromMiddle(n);
+                return n;
+            }
+            n = n.next;
         }
-        return false;
+        return new Node("Node does not exist");
+    }
+
+    public void removeNodeFromMiddle(Node n){
+        //change the elements before : next
+        //change the elements after : prev
+        n.prev.next = n.next;
+        n.next.prev = n.prev;
+        printFromHead();
     }
 }
