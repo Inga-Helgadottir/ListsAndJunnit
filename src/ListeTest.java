@@ -87,15 +87,14 @@ class ListeTest {
         Node n = new Node("");
         assertEquals(n.data, listeTom.removeFromHead().data);
 
-        Node n2 = new Node("4");
+        Node n2 = new Node("313");
         listeTom.insertFromHead(n2);
-        assertEquals(n2, listeTom.removeFromHead());
 
+        assertEquals(n2, listeTom.removeFromHead());
         assertEquals(true, listeTom.isEmpty());
 
-        assertEquals("3", liste.removeFromHead().data);
-        assertEquals("210", liste.printFromHead());
-
+        liste.insertFromHead(n2);
+        assertEquals(n2, liste.removeFromHead());
     }
 
     @Test

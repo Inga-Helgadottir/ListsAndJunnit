@@ -60,7 +60,6 @@ public class Liste {
     }
 
     public Node removeFromHead(){
-
         Node n = new Node("");
         if(isEmpty()){
             return n;
@@ -130,4 +129,19 @@ public class Liste {
         System.out.println("after");
         printFromHead();
     }
+
+    public void addNodeToMiddle(Node prevNode, Node newNode){
+        //find out where it should go
+        //change the prev to point at n
+        //change next prev to point at n
+        System.out.println("before");
+        printFromHead();
+        prevNode.prev.next = newNode;
+        prevNode.prev = newNode;
+        newNode.prev = prevNode.prev.prev;
+        newNode.next = prevNode;
+        System.out.println("after");
+        printFromHead();
+    }
 }
+
