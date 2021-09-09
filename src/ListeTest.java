@@ -86,6 +86,7 @@ class ListeTest {
         assertEquals(n4, liste.removeFromHead());*/
         Node n = new Node("");
         assertEquals(n.data, listeTom.removeFromHead().data);
+        assertEquals(true, listeTom.isEmpty());
 
         Node n2 = new Node("313");
         listeTom.insertFromHead(n2);
@@ -95,6 +96,7 @@ class ListeTest {
 
         liste.insertFromHead(n2);
         assertEquals(n2, liste.removeFromHead());
+        assertEquals("4321", liste.printFromHead());
     }
 
     @Test

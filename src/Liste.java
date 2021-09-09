@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Liste {
     Node head;
     Node tail;
@@ -141,6 +143,36 @@ public class Liste {
         newNode.prev = prevNode.prev.prev;
         newNode.next = prevNode;
         System.out.println("after");
+        printFromHead();
+    }
+
+    public void emptyList(){
+        Node n = head;
+        while (n != null){
+            n = n.next;
+            removeFromHead();
+        }
+    }
+
+    public void changeListOrder(String newOrder){
+        System.out.print("before : ");
+        printFromHead();
+        ArrayList<Node> orderChangedArr = new ArrayList<>();
+        String[] newOrderSplit = newOrder.split(",");
+
+        for (int i = 0; i < newOrderSplit.length; i++) {
+            orderChangedArr.add(findNodeInList(newOrderSplit[i]));
+        }
+        emptyList();
+        printFromHead();
+
+        for (Node n : orderChangedArr) {
+            insertFromTail(n);
+        }
+
+        System.out.println("after : ");
+        System.out.println("new order should be 2431");
+        System.out.print("new order is : ");
         printFromHead();
     }
 }
