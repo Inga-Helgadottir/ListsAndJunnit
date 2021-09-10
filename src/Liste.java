@@ -140,14 +140,28 @@ public class Liste {
 
         return node;
     }
+    public void addNodeToMiddle(String data, String beforeNode){
+        Node n = new Node(data);
+        if(isEmpty()){
+            insertFromTail(n);
+            return;
+        }
+        if(findNode(beforeNode).data.equals("")){
+            insertFromTail(n);
+            return;
+        }
+        if(findNode(beforeNode) == head){
+            insertFromHead(n);
+            return;
+        }
+        Node after = findNode(beforeNode);
+        Node before = after.prev;
 
-    public void addNodeToMiddle(Node prevNode, Node newNode){
-        prevNode.prev.next = newNode;
-        prevNode.prev = newNode;
-        newNode.prev = prevNode.prev.prev;
-        newNode.next = prevNode;
+        n.next = after;
+        n.prev = before;
 
-        printFromHead();
+        after.prev = n;
+        before.next = n;
     }
 
     public void emptyList(){
