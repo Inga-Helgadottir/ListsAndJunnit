@@ -147,6 +147,7 @@ public class Liste {
             n = n.next;
             removeFromHead();
         }
+        printFromHead();
     }
 
     public void changeListOrder(String newOrder){
