@@ -133,13 +133,11 @@ public class Liste {
         //find out where it should go
         //change the prev to point at n
         //change next prev to point at n
-//        System.out.println("before");
-//        printFromHead();
         prevNode.prev.next = newNode;
         prevNode.prev = newNode;
         newNode.prev = prevNode.prev.prev;
         newNode.next = prevNode;
-//        System.out.println("after");
+
         printFromHead();
     }
 
@@ -152,8 +150,6 @@ public class Liste {
     }
 
     public void changeListOrder(String newOrder){
-//        System.out.print("before : ");
-//        printFromHead();
         ArrayList<Node> orderChangedArr = new ArrayList<>();
         String[] newOrderSplit = newOrder.split(",");
 
@@ -166,10 +162,6 @@ public class Liste {
         for (Node n : orderChangedArr) {
             insertFromTail(n);
         }
-
-//        System.out.println("after : ");
-//        System.out.println("new order should be 2431");
-//        System.out.print("new order is : ");
         printFromHead();
     }
 }
