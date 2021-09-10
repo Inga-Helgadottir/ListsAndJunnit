@@ -104,7 +104,7 @@ public class Liste {
         return n;
     }
 
-    public Node findNodeInList(String s){
+    public Node findNode(String s){
         Node n = head;
         while (n != null){
             if(n.data.equals(s)){
@@ -112,15 +112,33 @@ public class Liste {
             }
             n = n.next;
         }
-        return new Node("Node does not exist");
+        return new Node("");
     }
 
-    public void removeNodeFromMiddle(Node n){
-        //change the elements before : next
-        n.prev.next = n.next;
-        //change the elements after : prev
-        n.next.prev = n.prev;
-        printFromHead();
+    public Node removeNodeFromMiddle(String s){
+        if(isEmpty()){
+            return new Node("");
+        }
+        if(findNode(s).data.equals("")){
+            return new Node("");
+        }
+        Node node = findNode(s);
+
+        if(node == head){
+            return removeFromHead();
+        }
+
+        if(node == tail){
+            return removeFromTail();
+        }
+
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+
+        node.next = null;
+        node.prev = null;
+
+        return node;
     }
 
     public void addNodeToMiddle(Node prevNode, Node newNode){
@@ -146,7 +164,7 @@ public class Liste {
         String[] newOrderSplit = newOrder.split(",");
 
         for (int i = 0; i < newOrderSplit.length; i++) {
-            orderChangedArr.add(findNodeInList(newOrderSplit[i]));
+            orderChangedArr.add(findNode(newOrderSplit[i]));
         }
         emptyList();
         printFromHead();

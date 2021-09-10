@@ -1,5 +1,4 @@
 import org.junit.Assert;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -102,21 +101,40 @@ class ListeTest {
     }
 
     @Test
-    void findNodeInList() {
-        assertEquals("3", liste.findNodeInList("3").data);
-        assertEquals("0", liste.findNodeInList("0").data);
+    void findNode() {
+        assertEquals("3", liste.findNode("3").data);
+        assertEquals("0", liste.findNode("0").data);
+        assertEquals("", liste.findNode("6").data);
     }
 
     @Test
     void removeNodeFromMiddle() {
-        liste.removeNodeFromMiddle(liste.findNodeInList("2"));
-        Assert.assertEquals("310", outputStreamCaptor.toString().trim());
+        assertEquals("", listeTom.removeNodeFromMiddle("111").data);
+
+        assertEquals("3", liste.removeNodeFromMiddle("3").data);
+        assertEquals("210", liste.printFromHead());
+
+        assertEquals("0", liste.removeNodeFromMiddle("0").data);
+        assertEquals("21", liste.printFromHead());
+
+        liste.insertFromHead(new Node("3"));
+        assertEquals("321", liste.printFromHead());
+
+        assertEquals("2", liste.removeNodeFromMiddle("2").data);
+
+        assertEquals("31", liste.printFromHead());
+
+        liste.insertFromHead(new Node("4"));
+        assertEquals(null, liste.removeNodeFromMiddle("4").next);
+
+        liste.insertFromHead(new Node("4"));
+        assertEquals(null, liste.removeNodeFromMiddle("4").prev);
     }
 
     @Test
     void addNodeToMiddle() {
         Node n = new Node("8");
-        liste.addNodeToMiddle(liste.findNodeInList("2"), n);
+        liste.addNodeToMiddle(liste.findNode("2"), n);
         Assert.assertEquals("38210", outputStreamCaptor.toString().trim());
     }
 
