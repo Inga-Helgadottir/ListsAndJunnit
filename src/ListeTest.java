@@ -148,7 +148,8 @@ class ListeTest {
 
     @Test
     void addNodeToMiddle() {
-        Assert.assertEquals("431", outputStreamCaptor.toString());
-
+        Node n = new Node("8");
+        liste.addNodeToMiddle(liste.findNodeInList("2"), n);
+        Assert.assertEquals("43821", outputStreamCaptor.toString().trim());
     }
 }
