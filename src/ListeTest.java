@@ -9,13 +9,11 @@ import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListeTest {
-
-    Liste listeTom = new Liste();
-
-    Liste liste = new Liste();
-
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
+    Liste listeTom = new Liste();
+    Liste liste = new Liste();
 
     @BeforeEach
     void setUp() {
@@ -27,7 +25,6 @@ class ListeTest {
         liste.insertFromHead(n2);
         liste.insertFromHead(n3);
         liste.insertFromHead(n4);
-
 
         System.setOut(new PrintStream(outputStreamCaptor));
     }
