@@ -82,19 +82,26 @@ public class Liste {
     }
 
     public Node removeFromTail(){
+        Node n = new Node("");
         if(isEmpty()){
-            return null;
+            return n;
         }
 
         if(head == tail){
-            return tail;
+            n = head;
+
+            head = null;
+            tail = null;
+            return n;
         }
 
-        Node n = tail;
-        tail.prev = tail;
-        tail.prev.next = null;
+        n = tail;
 
-        return tail;
+        tail = tail.prev;
+        tail.next.prev = null;
+        tail.next = null;
+
+        return n;
     }
 
     public Node findNodeInList(String s){
