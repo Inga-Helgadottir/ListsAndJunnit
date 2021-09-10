@@ -35,6 +35,7 @@ class ListeTest {
     @Test
     void isEmpty(){
         assertEquals(true, listeTom.isEmpty());
+        assertEquals(false, liste.isEmpty());
     }
 
     @Test
