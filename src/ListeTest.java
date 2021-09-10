@@ -152,4 +152,10 @@ class ListeTest {
         liste.addNodeToMiddle(liste.findNodeInList("2"), n);
         Assert.assertEquals("43821", outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    void changeListOrder() {
+        liste.changeListOrder("2,3,4,1");
+        Assert.assertEquals("2341", outputStreamCaptor.toString().trim());
+    }
 }
