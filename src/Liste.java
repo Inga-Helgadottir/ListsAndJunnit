@@ -46,7 +46,7 @@ public class Liste {
             res = res + n.data;
             n = n.next;
         }
-        System.out.print(res);
+        System.out.println(res);
         return res;
     }
 

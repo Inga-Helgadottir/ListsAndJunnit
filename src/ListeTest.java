@@ -143,6 +143,12 @@ class ListeTest {
     @Test
     void removeNodeFromMiddle() {
         liste.removeNodeFromMiddle(liste.findNodeInList("2"));
+        Assert.assertEquals("431", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void addNodeToMiddle() {
         Assert.assertEquals("431", outputStreamCaptor.toString());
+
     }
 }
