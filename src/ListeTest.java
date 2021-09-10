@@ -152,14 +152,14 @@ class ListeTest {
     }
 
     @Test
-    void changeListOrder() {
-        liste.changeListOrder("2,3,4,1");
-        Assert.assertEquals("2341", outputStreamCaptor.toString().trim());
-    }
-
-    @Test
     void emptyList() {
         liste.emptyList();
         Assert.assertEquals("", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void changeListOrder() {
+        liste.changeListOrder("2,3,4,1");
+        Assert.assertEquals("2341", outputStreamCaptor.toString().trim());
     }
 }

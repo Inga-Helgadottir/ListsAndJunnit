@@ -79,19 +79,6 @@ public class Liste {
         head.prev = null;
 
         return n;
-        /* before
-        if(head == null){
-            return null;
-        }
-
-        if(head == tail){
-            return head;
-        }
-        Node n = head;
-        head.next = head;
-        head.next.prev = null;
-
-        return head;*/
     }
 
     public Node removeFromTail(){
@@ -123,16 +110,13 @@ public class Liste {
 
     public void removeNodeFromMiddle(Node n){
         //change the elements before : next
-        //change the elements after : prev
         n.prev.next = n.next;
+        //change the elements after : prev
         n.next.prev = n.prev;
         printFromHead();
     }
 
     public void addNodeToMiddle(Node prevNode, Node newNode){
-        //find out where it should go
-        //change the prev to point at n
-        //change next prev to point at n
         prevNode.prev.next = newNode;
         prevNode.prev = newNode;
         newNode.prev = prevNode.prev.prev;
