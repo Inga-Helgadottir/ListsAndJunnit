@@ -1,6 +1,10 @@
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,6 +13,9 @@ class ListeTest {
     Liste listeTom = new Liste();
 
     Liste liste = new Liste();
+
+    private final PrintStream standardOut = System.out;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @BeforeEach
     void setUp() {
@@ -20,6 +27,9 @@ class ListeTest {
         liste.insertFromHead(n2);
         liste.insertFromHead(n3);
         liste.insertFromHead(n4);
+
+
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     @Test
@@ -128,5 +138,11 @@ class ListeTest {
         liste.insertFromHead(n3);
         liste.insertFromHead(n4);
         assertEquals("3", liste.findNodeInList("3").data);
+    }
+
+    @Test
+    void removeNodeFromMiddle() {
+        liste.removeNodeFromMiddle(liste.findNodeInList("2"));
+        Assert.assertEquals("431", outputStreamCaptor.toString());
     }
 }

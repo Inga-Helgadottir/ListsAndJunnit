@@ -46,7 +46,7 @@ public class Liste {
             res = res + n.data;
             n = n.next;
         }
-        System.out.println(res);
+        System.out.print(res);
         return res;
     }
 
@@ -124,11 +124,8 @@ public class Liste {
     public void removeNodeFromMiddle(Node n){
         //change the elements before : next
         //change the elements after : prev
-        System.out.println("before");
-        printFromHead();
         n.prev.next = n.next;
         n.next.prev = n.prev;
-        System.out.println("after");
         printFromHead();
     }
 

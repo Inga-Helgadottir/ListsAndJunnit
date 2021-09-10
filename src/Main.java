@@ -12,9 +12,9 @@ public class Main {
         l.insertFromHead(n2);
         l.insertFromHead(n3);
         l.insertFromHead(n4);
-        l.changeListOrder("2,4,3,1");
+//        l.changeListOrder("2,4,3,1");
+        l.removeNodeFromMiddle(l.findNodeInList("2"));
         /*
-//        l.removeNodeFromMiddle(l.findNodeInList("2"));
         l.addNodeToMiddle(l.findNodeInList("2"), newNode);
 */
     }
