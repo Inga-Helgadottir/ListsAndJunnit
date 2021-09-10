@@ -12,7 +12,7 @@ public class Liste {
     }
 
     public Node insertFromHead(Node n){
-        if(head == null){
+        if(isEmpty()){
             head = n;
             tail = n;
             return head;
@@ -26,7 +26,7 @@ public class Liste {
     }
 
     public Node insertFromTail(Node n){
-        if(tail == null){
+        if(isEmpty()){
             head = n;
             tail = n;
             return tail;
@@ -95,7 +95,7 @@ public class Liste {
     }
 
     public Node removeFromTail(){
-        if(head == null){
+        if(isEmpty()){
             return null;
         }
 
