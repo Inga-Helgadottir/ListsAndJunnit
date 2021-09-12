@@ -181,19 +181,34 @@ public class Liste {
         if(isEmpty()){
             return;
         }
+
         ArrayList<Node> orderChangedArr = new ArrayList<>();
         String[] newOrderSplit = newOrder.split(",");
 
         for (int i = 0; i < newOrderSplit.length; i++) {
-            orderChangedArr.add(findNode(newOrderSplit[i]));
+            if(findNode(newOrderSplit[i]).data != ""){
+                orderChangedArr.add(findNode(newOrderSplit[i]));
+            }
         }
-        emptyList();
-        printFromHead();
 
-        for (Node n : orderChangedArr) {
-            insertFromTail(n);
+        if(lengthOfList() == orderChangedArr.size()){
+            emptyList();
+            for (Node n : orderChangedArr) {
+                insertFromTail(n);
+            }
+        }else{
+            System.out.println("one or more of your values is not in this list");
         }
-        printFromHead();
+    }
+
+    public int lengthOfList(){
+        Node n = head;
+        int count = 0;
+        while (n != null){
+            n = n.next;
+            count++;
+        }
+        return count;
     }
 }
 

@@ -153,7 +153,16 @@ class ListeTest {
 
     @Test
     void changeListOrder() {
+        liste.changeListOrder("7,3,5,8");
+        Assert.assertEquals("3210", liste.printFromHead());
+
         liste.changeListOrder("2,3,0,1");
-        Assert.assertEquals("2301", outputStreamCaptor.toString().trim());
+        Assert.assertEquals("2301", liste.printFromHead());
+    }
+
+    @Test
+    void lengthOfList() {
+        assertEquals(0, listeTom.lengthOfList());
+        assertEquals(4, liste.lengthOfList());
     }
 }
