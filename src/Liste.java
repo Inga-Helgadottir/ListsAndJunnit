@@ -140,6 +140,7 @@ public class Liste {
 
         return node;
     }
+
     public void addNodeToMiddle(String data, String beforeNode){
         Node n = new Node(data);
         if(isEmpty()){
@@ -165,6 +166,9 @@ public class Liste {
     }
 
     public void emptyList(){
+        if(isEmpty()){
+            return;
+        }
         Node n = head;
         while (n != null){
             n = n.next;
@@ -174,6 +178,9 @@ public class Liste {
     }
 
     public void changeListOrder(String newOrder){
+        if(isEmpty()){
+            return;
+        }
         ArrayList<Node> orderChangedArr = new ArrayList<>();
         String[] newOrderSplit = newOrder.split(",");
 
